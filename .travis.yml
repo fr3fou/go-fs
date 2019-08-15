@@ -1,0 +1,16 @@
+language: go
+go:
+  - '1.11.x'
+
+env:
+  - GO111MODULE=on
+
+before_install:
+  - go get github.com/mitchellh/gox
+
+install: true
+
+script:
+  # run all tests
+  - go test ./...
+  - gox -os="linux darwin windows" -arch="amd64" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" 
