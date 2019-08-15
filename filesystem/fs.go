@@ -344,7 +344,7 @@ func (f *Fs) PrintWorkingDirectory() string {
 }
 
 // New creates a new fileSystem
-func New() Fs {
+func New() *Fs {
 	root := &file{
 		name:     "/",
 		path:     "/",
@@ -353,7 +353,7 @@ func New() Fs {
 		parent:   nil,
 	}
 
-	return Fs{
+	return &Fs{
 		root:       root,
 		currentDir: root,
 	}
