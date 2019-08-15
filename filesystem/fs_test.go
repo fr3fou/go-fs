@@ -16,7 +16,7 @@ func TestNew(t *testing.T) {
 		parent:   nil,
 	}
 
-	expected := Fs{
+	expected := &Fs{
 		root:       root,
 		currentDir: root,
 	}
