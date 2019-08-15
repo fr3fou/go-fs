@@ -173,7 +173,7 @@ func (f *Fs) ChangeDir(path string) error {
 	return nil
 }
 
-// CreateDir creates a new directory in the current directory
+// CreateDir creates a new directory inside a given path
 func (f *Fs) CreateDir(path string) error {
 	cf, name, err := f.currentDir.walkToParent(path)
 
@@ -207,7 +207,7 @@ func (f *Fs) CreateDir(path string) error {
 	return nil
 }
 
-// ListDirectoryContents lists all of the items inside a directory
+// ListDirectoryContents lists all of the items inside a given path
 func (f *Fs) ListDirectoryContents(path string) (Children, error) {
 	cf, err := f.currentDir.walk(path)
 
@@ -243,7 +243,7 @@ func (f *Fs) DeleteDirectory(path string) error {
 	return nil
 }
 
-// CreateFile creates a new file in the current directory
+// CreateFile creates a new file at a given path
 func (f *Fs) CreateFile(path string, content []byte) error {
 	cf, name, err := f.currentDir.walkToParent(path)
 
@@ -309,7 +309,7 @@ func (f *Fs) ReadFile(path string) ([]byte, error) {
 	return cf.content, nil
 }
 
-// EditFile edits a file in the current directory
+// EditFile edits a file at a given path
 func (f *Fs) EditFile(path string, content []byte) error {
 	cf, name, err := f.currentDir.walkToParent(path)
 	if err != nil {
