@@ -12,5 +12,5 @@ install: true
 
 script:
   # run all tests
-  - go test ./...
+  - go test ./... -v
   - gox -os="linux darwin windows" -arch="amd64" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" 
